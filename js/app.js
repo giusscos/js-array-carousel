@@ -7,6 +7,8 @@ const img = [
     './img/05.jpg'
 ];
 
+let counter = 0
+
 //Acquisizione slider e arrows
 const sliderElment = document.querySelector('.slider');
 const arrowLeftElement = document.querySelector('.arrow_left');
@@ -30,3 +32,17 @@ for (let i = 0; i < img.length; i++){
     // aggiungiamo le slide allo slider
     sliderElment.append(slideElement);
 }
+
+// Acquisizione Elementi creati
+const slideElementJs = document.querySelector('.slide_wrapper');
+
+arrowRightElement.addEventListener('click', function() {
+
+    const slideActiveElement = document.querySelector('.slide_wrapper.active');
+
+    if(counter < 5){
+        counter++;
+    } else {
+        counter = 1;
+    }
+});
