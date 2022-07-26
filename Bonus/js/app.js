@@ -45,7 +45,11 @@ arrowRightElement.addEventListener('click', function() {
     slideNextElement = slideArrayElement[counter + 1];
     slideNextElement.classList.add('active');
     
-    counter++;
+    if(counter < 5){
+        counter++;
+    } else {
+        counter = 0;
+    }
 });
 
 // Evento freccia sinistra
@@ -56,6 +60,10 @@ arrowLeftElement.addEventListener('click', function() {
     
     slideNextElement = slideArrayElement[counter - 1];
     slideNextElement.classList.add('active');
-    
-    counter--;
+     
+    if(counter === 0){
+        counter = 5;
+    } else {
+        counter--;
+    }
 });
