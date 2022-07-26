@@ -7,6 +7,8 @@ const img = [
     './img/05.jpg'
 ];
 
+let slideArrayElement = []
+
 let counter = 0
 
 //Acquisizione slider e arrows
@@ -31,18 +33,26 @@ for (let i = 0; i < img.length; i++){
     
     // aggiungiamo le slide allo slider
     sliderElment.append(slideElement);
+    slideArrayElement.push(slideElement);
 }
-
-// Acquisizione Elementi creati
-const slideElementJs = document.querySelector('.slide_wrapper');
 
 arrowRightElement.addEventListener('click', function() {
 
-    const slideActiveElement = document.querySelector('.slide_wrapper.active');
+    const slideActiveElement = slideArrayElement[counter];
+    slideActiveElement.classList.remove('active');
+    
+    const slideNextElement = slideArrayElement[counter + 1];
+    slideNextElement.classList.add('active');
+    
+    counter++;
+});
+arrowLeftElement.addEventListener('click', function() {
 
-    if(counter < 5){
-        counter++;
-    } else {
-        counter = 1;
-    }
+    const slideActiveElement = slideArrayElement[counter];
+    slideActiveElement.classList.remove('active');
+    
+    const slideNextElement = slideArrayElement[counter - 1];
+    slideNextElement.classList.add('active');
+    
+    counter--;
 });
