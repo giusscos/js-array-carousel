@@ -41,21 +41,23 @@ arrowRightElement.addEventListener('click', function() {
     
     slideActiveElement = slideArrayElement[counter];
     slideActiveElement.classList.remove('active');
-    
-    slideNextElement = slideArrayElement[counter + 1];
+    if(counter < img.length - 1){   
+        counter++;
+    }
+    slideNextElement = slideArrayElement[counter];
     slideNextElement.classList.add('active');
-    
-    counter++;
 });
 
 // Evento freccia sinistra
 arrowLeftElement.addEventListener('click', function() {
-
+    
     slideActiveElement = slideArrayElement[counter];
     slideActiveElement.classList.remove('active');
     
-    slideNextElement = slideArrayElement[counter - 1];
+    if(counter > 0){
+        counter--;
+    }
+
+    slideNextElement = slideArrayElement[counter];
     slideNextElement.classList.add('active');
-    
-    counter--;
 });

@@ -41,15 +41,14 @@ arrowRightElement.addEventListener('click', function() {
     
     slideActiveElement = slideArrayElement[counter];
     slideActiveElement.classList.remove('active');
-    
-    slideNextElement = slideArrayElement[counter + 1];
-    slideNextElement.classList.add('active');
-    
-    if(counter < 5){
+    if(counter < img.length - 1){
         counter++;
     } else {
         counter = 0;
     }
+    slideNextElement = slideArrayElement[counter];
+    slideNextElement.classList.add('active');
+    
 });
 
 // Evento freccia sinistra
@@ -57,13 +56,12 @@ arrowLeftElement.addEventListener('click', function() {
 
     slideActiveElement = slideArrayElement[counter];
     slideActiveElement.classList.remove('active');
-    
-    slideNextElement = slideArrayElement[counter - 1];
-    slideNextElement.classList.add('active');
-     
-    if(counter === 0){
-        counter = 5;
-    } else {
+    if(counter > 0){
         counter--;
+    } else {
+        counter = img.length - 1;
     }
+    slideNextElement = slideArrayElement[counter];
+    slideNextElement.classList.add('active');
+
 });
